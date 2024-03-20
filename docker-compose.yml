@@ -1,0 +1,17 @@
+services:
+  atm:
+    image: zekro/atm9
+    restart: unless-stopped
+    environment:
+      XMS: 4G
+      XMX: 8G
+      MAX_AGE_BACKUP_FILES: 30d
+      PRE_START_BACKUP: "false"
+      POST_START_BACKUP: "false"
+    ports:
+      - "25823:25565"
+    volumes:
+      - "./atm/world:/var/mcserver/world"
+      - "./atm/whitelist.json:/var/mcserver/whitelist.json"
+      - "./atm/ops.json:/var/mcserver/ops.json"
+      - "./atm/server.properties:/var/mcserver/server.properties"
