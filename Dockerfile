@@ -1,16 +1,14 @@
 FROM ghcr.io/zekrotja/minebase
 
-ARG SERVER_DOWNLOAD_URL="https://mediafilez.forgecdn.net/files/5189/561/Server-Files-0.2.53.zip"
+COPY scripts/ scripts/
+COPY template.server.properties .
 
-RUN curl -Lo atm-server.zip "${SERVER_DOWNLOAD_URL}" \
+RUN bash ./scripts/download-latest.sh atm-server.zip \
     && unzip atm-server.zip \
     && rm atm-server.zip \
     && mv Server-Files-*/* .
 
 RUN chmod +x ./startserver.sh
-
-COPY scripts/ scripts/
-COPY template.server.properties .
 
 RUN chmod +x scripts/*.sh
 
