@@ -1,4 +1,4 @@
-FROM ghcr.io/zekrotja/minebase
+FROM ghcr.io/zekrotja/minebase:jdk-17
 
 COPY scripts/ scripts/
 COPY template.server.properties .
