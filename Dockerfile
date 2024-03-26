@@ -8,6 +8,8 @@ RUN bash ./scripts/download-latest.sh atm-server.zip \
     && rm atm-server.zip \
     && mv Server-Files-*/* .
 
+RUN mv ./config ./config.tmp
+
 RUN chmod +x ./startserver.sh
 
 RUN chmod +x scripts/*.sh
