@@ -2,6 +2,10 @@
 
 set -e
 
+if ! [ -d "./config" ]; then
+    mkdir "./config"
+fi
+
 if [ -z "$(ls -A ./config 2> /dev/null)" ]; then
     echo "----- Initializing config directory -----"
     if [ -f "config.tmp" ]; then
