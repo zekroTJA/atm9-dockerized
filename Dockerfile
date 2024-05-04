@@ -2,6 +2,7 @@ FROM ghcr.io/zekrotja/minebase:zulu-21
 
 COPY scripts/ scripts/
 COPY template.server.properties .
+COPY patch/ patch/
 
 RUN bash ./scripts/download-latest.sh atm-server.zip \
     && unzip atm-server.zip \

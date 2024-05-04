@@ -18,3 +18,5 @@ else
 fi
 
 ATM9_INSTALL_ONLY=true ./startserver.sh
+
+"$(dirname "$(realpath "$0")")/patch-mods.sh"
